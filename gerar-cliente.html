@@ -4,8 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GERAR DADOS PDV | F5 Informática e Acessórios</title>
-
-  <!-- Meta Open Graph para compartilhamento -->
   <meta property="og:title" content="GERAR DADOS PDV - F5 Informática" />
   <meta property="og:description" content="Ferramenta profissional para gerar dados de clientes" />
   <meta property="og:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRghvUSx9lGcJMvoaLkSpHt9CvrlX-x4umHwQ&s" />
@@ -183,6 +181,20 @@
       border-top: 1px solid #e9ecef;
     }
     
+    #login-container {
+      text-align: center;
+      padding: 20px;
+    }
+    
+    #login-container input {
+      max-width: 200px;
+      margin: 10px auto;
+    }
+    
+    #content {
+      display: none;
+    }
+    
     @media (max-width: 768px) {
       .container {
         padding: 25px 20px;
@@ -196,63 +208,91 @@
 </head>
 <body>
   <div class="container">
-    <div class="logo">
-      <h1>F5 INFORMÁTICA</h1>
-      <span>E ACESSÓRIOS</span>
-    </div>
-    
-    <h2>GERAR DADOS PDV</h2>
-
-    <label>NOME:</label>
-    <input type="text" id="nome" placeholder="Nome completo do cliente">
-
-    <label>CPF:</label>
-    <input type="text" id="cpf" placeholder="000.000.000-00" oninput="formatarCPF(this)">
-
-    <label>TELEFONE:</label>
-    <input type="text" id="telefone" placeholder="(21) 98765-4321" oninput="formatarTelefone(this)">
-
-    <label>CEP:</label>
-    <input type="text" id="cep" placeholder="00000-000" oninput="formatarCEP(this)" onblur="buscarCEP()">
-
-    <label>ENDEREÇO:</label>
-    <input type="text" id="endereco" placeholder="Rua, Avenida, etc.">
-
-    <label>BAIRRO:</label>
-    <input type="text" id="bairro">
-
-    <label>CIDADE:</label>
-    <input type="text" id="cidade">
-
-    <label>ESTADO:</label>
-    <input type="text" id="estado" readonly>
-
-    <label>SIGLA ESTADO:</label>
-    <input type="text" id="sigla_estado" readonly>
-
-    <label>PAÍS:</label>
-    <input type="text" id="pais" value="Brasil" readonly>
-
-    <label>SIGLA PAÍS:</label>
-    <input type="text" id="sigla_pais" value="BR" readonly>
-
-    <label>S/N:</label>
-    <input type="text" id="sn" placeholder="Número de série ou identificação">
-
-    <div class="btn-group">
-      <button class="btn-primary" onclick="gerarTexto()">GERAR TEXTO</button>
-      <button class="btn-success" onclick="copiarTexto()">COPIAR TEXTO</button>
+    <div id="login-container">
+      <div class="logo">
+        <h1>F5 INFORMÁTICA</h1>
+        <span>E ACESSÓRIOS</span>
+      </div>
+      <h2>ACESSO RESTRITO</h2>
+      <label for="senha">DIGITE A SENHA:</label>
+      <input type="password" id="senha" maxlength="8">
+      <button class="btn-primary" onclick="verificarSenha()">ACESSAR</button>
+      <p id="mensagem-erro" style="color:red;display:none;">Senha incorreta. Tente novamente.</p>
     </div>
 
-    <label>TEXTO GERADO:</label>
-    <textarea id="resultado" readonly></textarea>
-    
-    <footer>
-      F5 INFORMÁTICA E ACESSÓRIOS © 2025 - TODOS OS DIREITOS RESERVADOS<br>
-    </footer>
+    <div id="content">
+      <div class="logo">
+        <h1>F5 INFORMÁTICA</h1>
+        <span>E ACESSÓRIOS</span>
+      </div>
+      
+      <h2>GERAR DADOS PDV</h2>
+
+      <label>NOME:</label>
+      <input type="text" id="nome" placeholder="Nome completo do cliente">
+
+      <label>CPF:</label>
+      <input type="text" id="cpf" placeholder="000.000.000-00">
+
+      <label>TELEFONE:</label>
+      <input type="text" id="telefone" placeholder="(21) 98765-4321">
+
+      <label>CEP:</label>
+      <input type="text" id="cep" placeholder="00000-000">
+
+      <label>ENDEREÇO:</label>
+      <input type="text" id="endereco" placeholder="Rua, Avenida, etc.">
+
+      <label>BAIRRO:</label>
+      <input type="text" id="bairro">
+
+      <label>CIDADE:</label>
+      <input type="text" id="cidade">
+
+      <label>ESTADO:</label>
+      <input type="text" id="estado" readonly>
+
+      <label>SIGLA ESTADO:</label>
+      <input type="text" id="sigla_estado" readonly>
+
+      <label>PAÍS:</label>
+      <input type="text" id="pais" value="Brasil" readonly>
+
+      <label>SIGLA PAÍS:</label>
+      <input type="text" id="sigla_pais" value="BR" readonly>
+
+      <label>S/N:</label>
+      <input type="text" id="sn" placeholder="Número de série ou identificação">
+
+      <div class="btn-group">
+        <button class="btn-primary" onclick="gerarTexto()">GERAR TEXTO</button>
+        <button class="btn-success" onclick="copiarTexto()">COPIAR TEXTO</button>
+      </div>
+
+      <label>TEXTO GERADO:</label>
+      <textarea id="resultado" readonly></textarea>
+      
+      <footer>
+        F5 INFORMÁTICA E ACESSÓRIOS © 2025 - TODOS OS DIREITOS RESERVADOS<br>
+      </footer>
+    </div>
   </div>
 
   <script>
+    // Função de verificação de senha ofuscada
+    function verificarSenha() {
+      var _0x4b18=["\x31\x32\x33\x34\x35\x36\x37\x38","\x73\x65\x6E\x68\x61","\x76\x61\x6C\x75\x65","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x6D\x65\x6E\x73\x61\x67\x65\x6D\x2D\x65\x72\x72\x6F","\x73\x74\x79\x6C\x65","\x64\x69\x73\x70\x6C\x61\x79","\x62\x6C\x6F\x63\x6B","\x63\x6F\x6E\x74\x65\x6E\x74","\x6E\x6F\x6E\x65"];
+      var senha=document[_0x4b18[3]](_0x4b18[1])[_0x4b18[2]];
+      if(senha==_0x4b18[0]){
+        document[_0x4b18[3]](_0x4b18[8])[_0x4b18[5]][_0x4b18[6]]=_0x4b18[7];
+        document[_0x4b18[3]](_0x4b18[4])[_0x4b18[5]][_0x4b18[6]]=_0x4b18[9];
+        document[_0x4b18[3]](_0x4b18[1])[_0x4b18[2]]=_0x4b18[9];
+      }else{
+        document[_0x4b18[3]](_0x4b18[4])[_0x4b18[5]][_0x4b18[6]]=_0x4b18[7];
+      }
+    }
+
+    // Código principal (apenas visível após login)
     const estados = {
       "AC": "Acre", "AL": "Alagoas", "AP": "Amapá", "AM": "Amazonas",
       "BA": "Bahia", "CE": "Ceará", "DF": "Distrito Federal", "ES": "Espírito Santo",
@@ -395,6 +435,21 @@ S/N: ${dados.sn}
         btnCopiar.textContent = 'COPIAR TEXTO';
       }, 2000);
     }
+
+    // Adiciona os event listeners após o login
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('cpf').addEventListener('input', function() {
+        formatarCPF(this);
+      });
+      
+      document.getElementById('telefone').addEventListener('input', function() {
+        formatarTelefone(this);
+      });
+      
+      document.getElementById('cep').addEventListener('input', function() {
+        formatarCEP(this);
+      });
+    });
   </script>
 </body>
 </html>
