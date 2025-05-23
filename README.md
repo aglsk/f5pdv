@@ -1,35 +1,21 @@
-# Consulta PDV - Gerador de Texto Formatado
+# 📋 Sistema PDV - F5 Informática e Acessórios
 
-Este projeto é uma ferramenta web simples para **preenchimento de dados pessoais com formatação automática**. Ao preencher o formulário, os dados são exibidos em letras maiúsculas, com **máscara de CEP e telefone**, além de um botão para copiar e metadados para compartilhamento em redes sociais e WhatsApp.
+Este repositório contém ferramentas desenvolvidas para o sistema PDV da **F5 Informática e Acessórios**.
 
-## Funcionalidades
+## 🛠️ Ferramentas Disponíveis
 
-- Preenchimento de:
-  - Nome
-  - CPF
-  - Telefone (com máscara: `11 98547-3210`)
-  - CEP (com máscara: `01.234-567`)
-  - Endereço completo via API do BrasilAPI
-  - País e Estado com siglas
-  - Campo de S/N personalizado
+1. **Cadastro de Clientes**
+   - Formulário completo para cadastro de novos clientes
+   - Validação de campos e máscaras automáticas
+   - Integração com API de CEP
+   - Envio automático via WhatsApp
 
-- Texto final gerado com espaçamento entre os campos e letras **maiúsculas**
-- Botão para **copiar o conteúdo**
-- **Meta tags Open Graph** para compartilhamento (WhatsApp, redes sociais, etc)
-
-## Como usar
-
-1. Clone o repositório ou copie o código HTML.
-2. Abra o arquivo `index.html` no navegador.
-3. Preencha os campos desejados.
-4. Clique em **"Gerar Texto"** e depois em **"Copiar"** se quiser colar em outro lugar.
-5. Compartilhe o link da ferramenta para mostrar os dados com preview.
-
-## Dependências
-
-- HTML/CSS/JS puro
-- API de CEP: [BrasilAPI - https://brasilapi.com.br]
+2. **GERAR DADOS PDV**
+   - Ferramenta para gerar dados de clientes
+   - Geração automática de texto formatado
+   - Função de copiar para área de transferência
+   - Integração com API de CEP
 
 ---
 
-Desenvolvido por [AGL SK].
+Desenvolvido com ❤️ pela equipe F5 Informática
