@@ -445,6 +445,11 @@ S/N: ${dados.sn}
       document.getElementById('cep').addEventListener('input', function() {
         formatarCEP(this);
       });
+
+      document.getElementById('cep').addEventListener('input', function () {
+      const cep = this.value.replace(/\D/g, '');
+      if (cep.length === 8) buscarCEP();
+      });
     });
   </script>
 </body>
